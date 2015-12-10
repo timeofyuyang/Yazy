@@ -1,0 +1,54 @@
+<!--quiz game - Format Script copyright FlightimAviation Zone -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gametest</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<style>
+        body        { padding-top:80px; word-wrap:break-word; }
+    </style>  
+  </head>
+  <body>
+ 
+<div id="highscores" class="sign today">
+		<div class="top"></div>
+		<div class="middle"  align="center">
+			<h1>JigsawPuzzle TOP 10</h1>
+			<br />
+			<table  width="600" border="1" cellspacing="0" cellpadding="5" bordercolor="#eeeeee">
+				<thead style="text-align:left" bgcolor="#000000">
+					<th style="color:white; text-align:center">PLAYER</th>
+					<th style="color:white; text-align:center">RANK</th>
+					<th style="color:white; text-align:center">SCORE</th>
+				</thead>
+				<tbody width="600" border="0" cellspacing="1" cellpadding="10" align="center" bgcolor="#FFFFFF">
+					<% for(var i=0; i<10; i++) { %>
+		  <TR>
+			<TD>
+			  <tr bgcolor="#D8D8D8">
+			  	<td style="cursor:hand;width:100%"><%=rows[i].USERNAME%></td>		
+				<td style="cursor:hand;width:100%"><%=i+1%></td>						
+				<td style="cursor:hand;width:100%"><%=rows[i].SCORE%></td>
+			  </tr>
+			</TD>
+		  </TR>
+		  <%}%>		
+				</tbody>
+			</table>
+		</div>
+		<div class="bottom"></div>
+	</div>
+	<p style="color:white">1</p>
+	<p style="color:white">1</p>
+	<div class="buttom" align="center">
+	<a href="/profile"><input type="button" value="Return"></input></a>
+	</div>
+	<p style="color:white">1</p>
+	<p style="color:white">1</p>
+	<p style="color:white">1</p>
+	<p style="color:white">1</p>
+  </body>
+</html>
+
+

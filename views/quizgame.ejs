@@ -1,0 +1,118 @@
+<!--quiz game - Format Script copyright FlightimAviation Zone -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gametest</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <style>
+        body        { padding-top:80px; word-wrap:break-word; }
+    </style>  
+  </head>
+  <body>
+  
+
+    <div class="heading">   	
+
+
+
+<form name="quizform" method="get" action"/quizgame" onsubmit="return quiz_go()" >
+
+<table width="550" border="0" align="center" cellpadding="2" cellspacing="0">
+<tr>
+  <td>
+  <TABLE width="550" border="1" cellspacing="0" cellpadding="5" bordercolor="#eeeeee">
+	<TR bgcolor="#eeeeee">
+	  <TD bgcolor="#f0f0f0" height="45"><font color="#003399" style="font-size:13px;font-weight:bold;"><%=times%>. What genre does "<%=title[answer]%>" belong to?</font></TD>
+	</TR>
+	<TR>
+	  <TD>
+		<TABLE width="100%" border="0" cellspacing="1" cellpadding="10" align="center" bgcolor="#003399">
+		  <TR>
+			<TD bgcolor="#ffffff">
+			  <label for="aw1" onClick="quiz_box(0);"><span style="cursor:hand;width:100%"> &nbsp;&nbsp;
+			  <input type="checkbox" name="antw" id="aw1" value="1" class="none" />
+			  <%=genre[0]%></span></label>
+			</TD>
+		  </TR>
+		  <TR>
+			<TD bgcolor="#f0f0f0">
+			  <label for="aw2" onClick="quiz_box(1);"><span style="cursor:hand;width:100%"> &nbsp;&nbsp;
+			  <input type="checkbox" name="antw" id="aw2" value="2" class="none" />
+			  <%=genre[1]%></span></label>
+			</TD>
+		  </TR>
+		  <TR>
+			<TD bgcolor="#ffffff">
+			  <label for="aw3" onClick="quiz_box(2);"><span style="cursor:hand;width:100%"> &nbsp;&nbsp;
+			  <input type="checkbox" name="antw" id="aw3" value="3" class="none" />
+			  <%=genre[2]%></span></label>
+			</TD>
+		  </TR>
+		  <TR>
+			<TD bgcolor="#f0f0f0">
+			  <label for="aw4" onClick="quiz_box(3);"><span style="cursor:hand;width:100%"> &nbsp;&nbsp;
+			  <input type="checkbox" name="antw" id="aw4" value="4" class="none" />
+			  <%=genre[3]%></span></label>
+			</TD>
+		  </TR>
+		</TABLE>
+	  </TD>
+	</TR>
+  </TABLE>
+  </td>
+</tr>
+<tr>
+  <td height="38" align="center">
+  	<input type="submit" id="sub" name="quiz_submit" style="font-size:13px;font-weight:bold;background-color:#ffffff;height:25px;cursor:hand;" value="Continue &gt;" />
+	<input type="button" align="center" id="score" value="Score" onclick="printIt()" disabled style="font-size:13px;font-weight:bold;background-color:#ffffff;height:25px;cursor:hand;"/>
+	<a href="/profile"><input type="button" value="Return" style="font-size:13px;font-weight:bold;background-color:#ffffff;height:25px;cursor:hand;"></input></a>
+  </td>
+</tr>
+
+</table>
+</form>
+	</div>
+  </body>
+</html>
+
+<script type="text/JavaScript">
+function quiz_box(n) {
+	var quizboxes = document.quizform.antw;
+	for(var j=0;j<4;j++) {
+		//if(i!=n) { if(quizboxes[j].checked){quizboxes[n].checked=false;} }
+		quizboxes[j].checked=false; quizboxes[n].checked=true;
+	}
+	}
+	
+
+
+function quiz_go() {
+	var checkboxes = document.quizform.antw;
+	
+	if (<%=times%>==5){
+		document.quizform.score.disabled=false;
+		alert('Quiz end, click Score to see your achievement'); 
+		return false; }
+	else{
+	if(checkboxes[0].checked||checkboxes[1].checked||checkboxes[2].checked||checkboxes[3].checked)
+	{
+	document.quizform.quiz_submit.value='SUBMITTING...';
+	document.quizform.quiz_submit.style.cursor='default';
+	document.quizform.quiz_submit.disabled=true;
+	document.getElementById('times').value = document.getElementById('times').value+1;
+	return true;
+	}
+	else {	
+	alert('Select an answer.'); return false; }
+	}}
+	
+function printIt(){
+	document.quizform.score.disabled=false;
+	alert(<%=score%>);
+}
+
+
+</script>
+
+
